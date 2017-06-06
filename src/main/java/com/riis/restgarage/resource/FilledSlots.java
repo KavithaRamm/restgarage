@@ -8,16 +8,15 @@ import javax.ws.rs.core.Response;
 
 import com.riis.restgarage.service.GarageSlotsServiceImpl;
 
-@Path("/garage")
+@Path("/rest-garage-sample/")
 @Produces(MediaType.APPLICATION_JSON)
 public class FilledSlots {
 	GarageSlotsServiceImpl garageSlotServiceImpl = new GarageSlotsServiceImpl();
 
 	@GET
-	@Path("/")
+	@Path("garage")
 	public Response getFilledGarageSlots() {
 		int filledGarageslots = garageSlotServiceImpl.findFilledGarageSlots();
-		System.out.println("Hello world");
 		return Response.ok(filledGarageslots).build();
 	}
 }
