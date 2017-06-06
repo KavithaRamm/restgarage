@@ -17,6 +17,7 @@ public class FilledSlots {
 	@Path("/")
 	public Response getFilledGarageSlots() {
 		int filledGarageslots = garageSlotServiceImpl.findFilledGarageSlots();
+		System.out.println("Hello world");
 		return Response.ok(filledGarageslots).build();
 	}
 }
