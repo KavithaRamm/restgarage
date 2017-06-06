@@ -6,17 +6,17 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.riis.restgarage.service.GarageSlotService;
+import com.riis.restgarage.service.GarageSlotsServiceImpl;
 
 @Path("/garage")
 @Produces(MediaType.APPLICATION_JSON)
 public class FilledSlots {
-	GarageSlotService garageSlotService;
+	GarageSlotsServiceImpl garageSlotServiceImpl = new GarageSlotsServiceImpl();
 
 	@GET
 	@Path("/")
 	public Response getFilledGarageSlots() {
-		int filledGarageslots = garageSlotService.findFilledGarageSlots();
+		int filledGarageslots = garageSlotServiceImpl.findFilledGarageSlots();
 		return Response.ok(filledGarageslots).build();
 	}
 }
